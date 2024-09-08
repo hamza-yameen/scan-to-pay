@@ -5,6 +5,13 @@
 3. Docker: Containerization for consistent development environments.
 4. Prisma ORM: Simplifies database interactions with type-safe queries.
 5. JWT Token: Used for authentication and authorization.
+***
+The image below shows the ERD diagram, which helps you understand the relationships between database entities.
+![ERD Diagram](https://raw.githubusercontent.com/hamza-yameen/scan-to-pay/main/assets/ER-Diagram.png)
+***
+Here is the link to the
+[Postman collection](https://github.com/hamza-yameen/scan-to-pay/blob/main/assets/Spin-Pay-App.postman_collection.json)
+***
 
 ## Setup Instructions
 Clone Repo:
@@ -69,9 +76,5 @@ This module manages payments for bookings.
 * POST /payment/scan:            Process a payment for a booking.
 * GET /payments/bookingId:       Get payment details by booing ID.
 
-***
-Here is the link to the
-[Postman collection](https://github.com/hamza-yameen/scan-to-pay/blob/main/assets/Spin-Pay-App.postman_collection.json)
-***
-The image below shows the ERD diagram, which helps you understand the relationships between database entities.
-![ERD Diagram](https://raw.githubusercontent.com/hamza-yameen/scan-to-pay/main/assets/ER-Diagram.png)
+
+
