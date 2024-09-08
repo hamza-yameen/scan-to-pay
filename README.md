@@ -66,3 +66,9 @@ This module allows users to leave reviews for their bookings.
 This module manages payments for bookings.
 * POST /payment/scan:            Process a payment for a booking.
 * GET /payments/bookingId:       Get payment details by booing ID.
+
+***
+Here is the link to the Postman collection
+[Postman collection](https://github.com/hamza-yameen/scan-to-pay/blob/main/assets/Spin-Pay-App.postman_collection.json)
+***
+
