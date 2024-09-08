@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "72be3475-c6c4-4920-bbac-fb4c8d71a2ed",
+		"name": "Spin-Pay-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30997536"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"email1155@gmail.com\",\n    \"password\":\"password\",\n    \"name\": \"user1155\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/user/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"email1155@gmail.com\",\n    \"password\":\"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/user/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6InVzZXIxMTU1IiwiZW1haWwiOiJlbWFpbDExNTVAZ21haWwuY29tIiwiaWF0IjoxNzI1NzkwNzc2LCJleHAiOjE3MjU4NzcxNzZ9.vsYGT8hCLpkayvKbE9xPTth5a2IaeyNWhtC-5jVaJ60"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/user/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "Update the QRCode",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"qrCode\":\"qrCode\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/merchant/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Merchant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"merchant1144\",\n    \"email\":\"merchant1144@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/merchant/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Merchants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/merchant"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Merchant",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3000/merchant/remove/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Merchant By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/merchant/find/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Bookings",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6InVzZXIxMTU1IiwiZW1haWwiOiJlbWFpbDExNTVAZ21haWwuY29tIiwiaWF0IjoxNzI1NzkwNzc2LCJleHAiOjE3MjU4NzcxNzZ9.vsYGT8hCLpkayvKbE9xPTth5a2IaeyNWhtC-5jVaJ60"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"merchantId\": 4,\n    \"amount\": 34.00,\n    \"status\": \"PENDING\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/booking/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Bookings",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6InVzZXIxMTU1IiwiZW1haWwiOiJlbWFpbDExNTVAZ21haWwuY29tIiwiaWF0IjoxNzI1NzkwNzc2LCJleHAiOjE3MjU4NzcxNzZ9.vsYGT8hCLpkayvKbE9xPTth5a2IaeyNWhtC-5jVaJ60"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/booking/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Booking Detail With Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/booking/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Booking Status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"COMPLETED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/booking/1/status"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment Scan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookingId\": 3,\n    \"amount\": 444,\n    \"paymentMethod\": \"CREDIT_CARD\",\n    \"status\": \"COMPLETED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/payment/scan"
+			},
+			"response": []
+		}
+	]
+}
