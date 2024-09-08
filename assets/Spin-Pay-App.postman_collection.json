@@ -203,6 +203,54 @@
 				"url": "http://localhost:3000/payment/scan"
 			},
 			"response": []
+		},
+		{
+			"name": "Get Payment By Booking Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/payment/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Review",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6InVzZXIxMTU1IiwiZW1haWwiOiJlbWFpbDExNTVAZ21haWwuY29tIiwiaWF0IjoxNzI1ODAxMzY3LCJleHAiOjE3MjU4ODc3Njd9.VYTT2vcBVBTSFSRsyxJ1RF_dGZQxaiP51r2mNqX8YB8"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookingId\": 5,\n    \"merchantId\": 3,\n    \"rating\": 10,\n    \"comment\": \"Amazing Event\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/review/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Reviews by User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6InVzZXIxMTU1IiwiZW1haWwiOiJlbWFpbDExNTVAZ21haWwuY29tIiwiaWF0IjoxNzI1ODAxMzY3LCJleHAiOjE3MjU4ODc3Njd9.VYTT2vcBVBTSFSRsyxJ1RF_dGZQxaiP51r2mNqX8YB8"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/review/user"
+			},
+			"response": []
 		}
 	]
 }

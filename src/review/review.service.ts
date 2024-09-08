@@ -1,26 +1,74 @@
-import { Injectable } from '@nestjs/common';
-import { CreateReviewDto } from './dto/create-review.dto';
-import { UpdateReviewDto } from './dto/update-review.dto';
+import { Injectable, BadRequestException } from "@nestjs/common";
+import { CreateReviewDto } from "./dto";
+import { PrismaService } from "src/prisma.service";
+import { createSuccessResponse } from "../../libs/helpers/api-response.helpers";
 
 @Injectable()
 export class ReviewService {
-  create(createReviewDto: CreateReviewDto) {
-    return 'This action adds a new review';
-  }
+	constructor(private prisma: PrismaService) {}
 
-  findAll() {
-    return `This action returns all review`;
-  }
+	async add(createReviewDto: CreateReviewDto, userId: number) {
+		const { bookingId, merchantId, rating, comment } = createReviewDto;
 
-  findOne(id: number) {
-    return `This action returns a #${id} review`;
-  }
+		try {
+			const addReview = await this.prisma.review.create({
+				data: {
+					bookingId: bookingId,
+					rating: rating,
+					merchantId: merchantId,
+					comment: comment,
+					userId: userId,
+				},
+			});
 
-  update(id: number, updateReviewDto: UpdateReviewDto) {
-    return `This action updates a #${id} review`;
-  }
+			return createSuccessResponse({
+				message: "Review added successfully",
+				review: { ...addReview },
+			});
+		} catch (error: any) {
+			console.log("Error : ", error);
+			throw new BadRequestException("Failed to create review");
+		}
+	}
 
-  remove(id: number) {
-    return `This action removes a #${id} review`;
-  }
+	async getAllReviewByUserId(userId: number) {
+		try {
+			const userReviewsWithBookings = await this.prisma.review.findMany({
+				where: {
+					userId: userId,
+				},
+				include: {
+					booking: true,
+					merchant: true,
+				},
+			});
+
+			return createSuccessResponse({
+				userReviews: userReviewsWithBookings,
+			});
+		} catch (error: any) {
+			console.log("Error : ", error);
+			throw new BadRequestException("Failed to get review process");
+		}
+	}
+
+	async getAllReviewByMerchantId(merchantId: number) {
+		try {
+			const merchantReviewsWithBookings = await this.prisma.review.findMany({
+				where: {
+					merchantId: merchantId,
+				},
+				include: {
+					booking: true,
+				},
+			});
+
+			return createSuccessResponse({
+				merchantReviews: merchantReviewsWithBookings,
+			});
+		} catch (error: any) {
+			console.log("Error : ", error);
+			throw new BadRequestException("Failed to get review process");
+		}
+	}
 }
