@@ -31,7 +31,9 @@ Run Project:
 ```bash
 npm start dev
 ```
- 
+
+***
+
 ## Application Endpoints
 The application consists of 5 main modules: User, Booking, Merchant, Review, and Payment. Each module contains several endpoints to manage various operations.
 
@@ -68,7 +70,8 @@ This module manages payments for bookings.
 * GET /payments/bookingId:       Get payment details by booing ID.
 
 ***
-Here is the link to the Postman collection
+Here is the link to the
 [Postman collection](https://github.com/hamza-yameen/scan-to-pay/blob/main/assets/Spin-Pay-App.postman_collection.json)
 ***
-
+The image below shows the ERD diagram, which helps you understand the relationships between database entities.
+![ERD Diagram](https://raw.githubusercontent.com/hamza-yameen/scan-to-pay/main/assets/ER-Diagram.png)
